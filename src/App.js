@@ -1,26 +1,7 @@
-// import React, { Component } from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-//
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <h1 className="App-title">Welcome to React</h1>
-//         </header>
-//         <p className="App-intro">
-//           To get started, edit <code>src/App.js</code> and save to reload.
-//         </p>
-//       </div>
-//     );
-//   }
-// }
-//
-// export default App;
 import React, { Component } from "react";
 import { lodash, isBetween } from "lodash";
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import MentorPage from "./components/Mentors/MentorPage";
 import env from "./env";
@@ -36,8 +17,8 @@ class App extends Component {
   componentDidMount() {
     console.log(env.KEY);
 
-    //make request to API to get information
-    fetch("https://api.airtable.com/v0/app0XX03H8f3ue8mF/mentees", {
+    //  make request to API to get information
+    fetch("https://api.airtable.com/v0/app0XX03H8f3ue8mF/mentors", {
       headers: {
         "Content-Type": "application/json",
 
@@ -68,14 +49,22 @@ class App extends Component {
   render() {
     return (
       <div className="contain">
-        {/* </div> */}
-        <div>
-          <h2 className="title" />
-        </div>
-
-        <div>
+        <Router>
+          <Switch>
+            {/* <Route exact path="/login" component={LoginPageContainer} />
+              <Route exact path="/" component={RegisterPageContainer} />
+                <Route exact path="/home" component={HomePage} /> */}
+            <Route exact path="/mentors" component={MentorPage} />
+            {/* <Route
+                exact
+                path="/destinations/:destinationId"
+                component={AdventurePageContainer}
+              /> */}
+          </Switch>
+          {/* <div>
           <MentorPage mentors={this.state.mentors} />
-        </div>
+        </div> */}
+        </Router>
       </div>
     );
   }
