@@ -23,7 +23,7 @@ import React, { Component } from "react";
 import { lodash, isBetween } from "lodash";
 import "./App.css";
 import MentorPage from "./components/Mentors/MentorPage";
-
+import env from "./env";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -32,32 +32,45 @@ class App extends Component {
       showAll: true
     };
   }
+
   componentDidMount() {
-    let key = "";
+    console.log(env.KEY);
+
     //make request to API to get information
-    fetch("https://api.airtable.com/v0/appgZL4JHAEkVQWiM/destinations", {
+    fetch("https://api.airtable.com/v0/app0XX03H8f3ue8mF/mentees", {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${key}`
+
+        Authorization: " Bearer "
       }
     })
-      .then(response => {
-        console.log(response, "response");
-        response.json();
+      .then(response => response.json())
+      .then(mentorCards => {
+        // if (!mentorCards) {
+        //   console.log('there are no mentorCards');
+        //   // throw new Error();
+        // }
+        console.log(mentorCards.records, "mentorcards");
+        return mentorCards.records.map(mentorCard => {
+          return {
+            id: mentorCard.id,
+            skills: mentorCard.fields.skills,
+            message: mentorCard.fields.message,
+            name: mentorCard.fields.name,
+            contact: mentorCard.fields.contact,
+            image: mentorCard.fields.imgurl
+          };
+        });
       })
-      .then(data => {
-        console.log(data, "data");
-        this.setState({ mentors: data });
-      });
+      .then(mentors => this.setState({ mentors: mentors.splice(1) }));
   }
 
   render() {
-    console.log(this.state.mentors, "state");
     return (
       <div className="contain">
         {/* </div> */}
         <div>
-          <h2 className="title">Mentors Page</h2>
+          <h2 className="title" />
         </div>
 
         <div>

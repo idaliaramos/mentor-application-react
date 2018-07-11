@@ -5,7 +5,8 @@ export default function MentorsPageLayout(prop) {
   const style = {
     display: "flex",
     flexDirection: "row",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    marginLeft: 40
   };
   console.log(prop, "Prop");
   return (
@@ -15,6 +16,8 @@ export default function MentorsPageLayout(prop) {
         {prop.children[0]}
         {prop.children[1]}
         {prop.children[2]}
+        {prop.children[3]}
+        {prop.children[4]}
       </div>
     </div>
   );
