@@ -6,6 +6,13 @@ export default class NavComponent extends Component {
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
+  handleMentorsClick = () => {
+    console.log("i clicked the mentors");
+  };
+  handleMenteesClick = () => {
+    console.log("i clicked the mentees");
+  };
+
   render() {
     const { activeItem } = this.state;
 
@@ -18,13 +25,13 @@ export default class NavComponent extends Component {
         />
         <Menu.Item
           name="mentees"
-          active={activeItem === "messages"}
-          onClick={this.handleItemClick}
+          active={activeItem === "mentees"}
+          onClick={this.handleMenteesClick}
         />
         <Menu.Item
           name="mentors"
-          active={activeItem === "messages"}
-          onClick={this.handleItemClick}
+          active={activeItem === "mentors"}
+          onClick={this.handleMentorsClick}
         />
 
         <Menu.Menu position="right">
