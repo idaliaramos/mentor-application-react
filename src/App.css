@@ -21,8 +21,21 @@
 .App-intro {
   font-size: large;
 }
+.form-component {
+  height: 60%;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 2%;
+}
+.center {
+  margin-left: 10%;
+}
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

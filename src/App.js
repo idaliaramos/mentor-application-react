@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import MentorPage from "./components/Mentors/MentorPage";
 import MenteesPage from "./components/Mentees/MenteesPage";
+import UserFormPage from "./components/UserForm/UserFormPage";
 import env from "./env";
 class App extends Component {
   constructor(props) {
@@ -29,6 +30,9 @@ class App extends Component {
             </Route>
             <Route exact path="/mentees">
               <MenteesPage />
+            </Route>
+            <Route exact path="/userForm">
+              <UserFormPage />
             </Route>
           </Switch>
         </Router>
