@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import UserCard from "../Mentors/UserCard";
+import UserCard from "../UserCard";
 import MentsPageLayout from "../Mentors/MentsPageLayout";
 import NavComponent from "../Navigation/NavComponent";
 
