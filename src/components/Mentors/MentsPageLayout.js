@@ -1,7 +1,7 @@
 import React from "react";
 // import NavigationComponent from '../nav/NavigationComponent';
 
-export default function MentorsPageLayout(prop) {
+export default function MentsPageLayout(prop) {
   const style = {
     display: "flex",
     flexDirection: "row",

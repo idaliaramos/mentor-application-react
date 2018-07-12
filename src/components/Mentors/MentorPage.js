@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 
 import UserCard from "./UserCard";
-import MentorPageLayout from "./MentorPageLayout";
+import MentsPageLayout from "./MentsPageLayout";
 import NavComponent from "../Navigation/NavComponent";
-import getMentors from "../../ApiCalls/getMentors";
 
 export default class MentorPage extends Component {
   constructor() {
@@ -44,7 +43,7 @@ export default class MentorPage extends Component {
     return (
       <div className="MentorsPage">
         <NavComponent />
-        <MentorPageLayout>{this.state.mentors}</MentorPageLayout>
+        <MentsPageLayout>{this.state.mentors}</MentsPageLayout>
       </div>
     );
   }
