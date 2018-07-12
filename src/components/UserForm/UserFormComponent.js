@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, Segment, Dropdown } from "semantic-ui-react";
+import createUserInfo from "../../ApiCalls/createUserInfo";
 
 const options = [
   { key: "angular", text: "Angular", value: "angular" },
@@ -21,18 +22,56 @@ const options = [
 ];
 
 class UserFormComponent extends Component {
-  state = {};
+  state = {
+    firstName: "",
+    lastName: ""
+  };
 
-  handleChange = (e, { value }) => this.setState({ value });
+  handleChange = (e, { value }) => {
+    console.log(this.state, "state");
+    this.setState({ value });
+  };
+  _handleClickOnSubmit = event => {
+    event.preventDefault();
+    let userInfo = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      skills: this.state.skills,
+      message: this.state.message,
+      contact: this.state.contact,
+      imgurl: this.state.imgurl
+    };
+    createUserInfo(userInfo);
+  };
 
   render() {
     const { value } = this.state;
     return (
       <Segment inverted color="blue" size={"big"} key={"big"}>
-        <Form inverted size={"big"} key={"big"}>
+        <Form
+          inverted
+          size={"big"}
+          key={"big"}
+          onSubmit={this._handleClickOnSubmit}
+        >
           <Form.Group widths="equal">
-            <Form.Input fluid label="First name" placeholder="First name" />
-            <Form.Input fluid label="Last name" placeholder="Last name" />
+            <Form.Input
+              fluid
+              label="First name"
+              placeholder="First name"
+              // name={this.state.name}
+              onChange={(event, newValue) =>
+                this.setState({ firstName: newValue.value })
+              }
+            />
+            <Form.Input
+              fluid
+              label="Last name"
+              placeholder="Last name"
+              onChange={(event, newValue) =>
+                this.setState({ lastName: newValue.value })
+              }
+            />
           </Form.Group>
           <Form.Group>
             <label>What are your skills?</label>
@@ -42,6 +81,9 @@ class UserFormComponent extends Component {
               multiple
               selection
               options={options}
+              onChange={(event, newValue) =>
+                this.setState({ skills: newValue.value })
+              }
             />
           </Form.Group>
 
@@ -63,6 +105,9 @@ class UserFormComponent extends Component {
           <Form.TextArea
             label="About"
             placeholder="Tell us more about you..."
+            onChange={(event, newValue) =>
+              this.setState({ message: newValue.value })
+            }
           />
           <Form.Checkbox label="I agree to the Terms and Conditions" />
           <Form.Button>Submit</Form.Button>

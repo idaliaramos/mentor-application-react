@@ -19,7 +19,7 @@ export default class UserFormPage extends Component {
         {/* <UserFormPageLayout> */}
         <h1 className="center">Tell us about yourself</h1>
         <div className="form-component">
-          <UserFormComponent />
+          <UserFormComponent onSubmitUserInfo={this.props.onSubmitUserInfo} />
         </div>
         {/* </UserFormPageLayout> */}
       </div>

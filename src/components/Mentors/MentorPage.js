@@ -16,7 +16,7 @@ export default class MentorPage extends Component {
     fetch("https://api.airtable.com/v0/app0XX03H8f3ue8mF/mentors", {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${env.KEY}`
+        Authorization: `Bearer `
       }
     })
       .then(response => response.json())
