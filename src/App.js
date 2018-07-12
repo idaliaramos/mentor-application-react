@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import MentorPage from "./components/Mentors/MentorPage";
-// import MentorPageContainer from "./redux";
+import MenteesPage from "./components/Mentees/MenteesPage";
 import env from "./env";
 class App extends Component {
   constructor(props) {
@@ -14,6 +14,7 @@ class App extends Component {
       mentees: []
     };
   }
+
   render() {
     return (
       <div className="contain">
@@ -27,7 +28,7 @@ class App extends Component {
               <MentorPage mentors={this.state.mentors} />
             </Route>
             <Route exact path="/mentees">
-              <MentorPage mentors={this.state.mentees} />
+              <MenteesPage />
             </Route>
           </Switch>
         </Router>

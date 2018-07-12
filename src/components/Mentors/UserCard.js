@@ -3,7 +3,7 @@ import { Card, Icon, Image, Label, Button } from "semantic-ui-react";
 const style = {
   margin: 10
 };
-const MentorCard = props => {
+const UserCard = props => {
   console.log(props.name, "props in the mentor card");
   return (
     <div>
@@ -52,4 +52,4 @@ const MentorCard = props => {
 
 {/* Layout 2 */
 };
-export default MentorCard;
+export default UserCard;

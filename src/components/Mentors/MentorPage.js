@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import MentorCard from "./MentorCard";
+import UserCard from "./UserCard";
 import MentorPageLayout from "./MentorPageLayout";
 import NavComponent from "../Navigation/NavComponent";
 import getMentors from "../../ApiCalls/getMentors";
@@ -26,7 +26,7 @@ export default class MentorPage extends Component {
         let mentors = mentorCards.records.map(mentorCard => {
           return (
             <div>
-              <MentorCard
+              <UserCard
                 name={mentorCard.fields.name}
                 id={mentorCard.id}
                 message={mentorCard.fields.message}

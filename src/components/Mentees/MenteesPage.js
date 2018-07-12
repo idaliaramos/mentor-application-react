@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import MenteeCard from "./MenteeCard";
-import MenteePageLayout from "./MenteePageLayout";
+import UserCard from "../Mentors/UserCard";
+import MentorPageLayout from "../Mentors/MentorPageLayout";
 import NavComponent from "../Navigation/NavComponent";
 import getMentees from "../../ApiCalls/getMentees";
 
@@ -26,7 +26,7 @@ export default class MenteePage extends Component {
         let mentees = menteeCards.records.map(menteeCard => {
           return (
             <div>
-              <MenteeCard
+              <UserCard
                 name={menteeCard.fields.name}
                 id={menteeCard.id}
                 message={menteeCard.fields.message}
@@ -44,7 +44,7 @@ export default class MenteePage extends Component {
     return (
       <div className="MenteesPage">
         <NavComponent />
-        <MenteePageLayout>{this.state.mentees}</MenteePageLayout>
+        <MentorPageLayout>{this.state.mentees}</MentorPageLayout>
       </div>
     );
   }
