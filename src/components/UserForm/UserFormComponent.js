@@ -1,30 +1,39 @@
 import React, { Component } from "react";
 import { Form, Segment, Dropdown } from "semantic-ui-react";
-import createUserInfo from "../../ApiCalls/createUserInfo";
-
+import createMentor from "../../ApiCalls/createMentor";
+import createMentee from "../../ApiCalls/createMentee";
 const options = [
-  { key: "angular", text: "Angular", value: "angular" },
-  { key: "css", text: "CSS", value: "css" },
-  { key: "design", text: "Graphic Design", value: "design" },
-  { key: "ember", text: "Ember", value: "ember" },
-  { key: "html", text: "HTML", value: "html" },
-  { key: "ia", text: "Information Architecture", value: "ia" },
-  { key: "javascript", text: "Javascript", value: "javascript" },
-  { key: "mech", text: "Mechanical Engineering", value: "mech" },
-  { key: "meteor", text: "Meteor", value: "meteor" },
-  { key: "node", text: "NodeJS", value: "node" },
-  { key: "python", text: "Python", value: "python" },
-  { key: "rails", text: "Rails", value: "rails" },
-  { key: "react", text: "React", value: "react" },
-  { key: "ruby", text: "Ruby", value: "ruby" },
-  { key: "ui", text: "UI Design", value: "ui" },
-  { key: "ux", text: "User Experience", value: "ux" }
+  { key: "Angular", text: "Angular", value: "Angular" },
+  { key: "CSS", text: "CSS", value: "CSS" },
+  { key: "Graphic Design", text: "Graphic Design", value: "Graphic Design" },
+  { key: "Ember", text: "Ember", value: "Ember" },
+  { key: "HTML", text: "HTML", value: "HTML" },
+  {
+    key: "Information Architecture",
+    text: "Information Architecture",
+    value: "Information Architecture"
+  },
+  { key: "Javascript", text: "Javascript", value: "Javascript" },
+  {
+    key: "Mechanical Engineering",
+    text: "Mechanical Engineering",
+    value: "Mechanical Engineering"
+  },
+  { key: "Meteor", text: "Meteor", value: "Meteor" },
+  { key: "NodeJS", text: "NodeJS", value: "NodeJS" },
+  { key: "Python", text: "Python", value: "Python" },
+  { key: "Rails", text: "Rails", value: "Rails" },
+  { key: "React", text: "React", value: "React" },
+  { key: "Ruby", text: "Ruby", value: "Ruby" },
+  { key: "UI Design", text: "UI Design", value: "UI Design" },
+  { key: "User Experience", text: "User Experience", value: "User Experience" }
 ];
 
 class UserFormComponent extends Component {
   state = {
-    firstName: "",
-    lastName: ""
+    name: "",
+    lastName: "",
+    value: ""
   };
 
   handleChange = (e, { value }) => {
@@ -34,14 +43,18 @@ class UserFormComponent extends Component {
   _handleClickOnSubmit = event => {
     event.preventDefault();
     let userInfo = {
-      firstName: this.state.firstName,
+      name: this.state.firstName,
       lastName: this.state.lastName,
       skills: this.state.skills,
       message: this.state.message,
       contact: this.state.contact,
       imgurl: this.state.imgurl
     };
-    createUserInfo(userInfo);
+    if (this.state.value === "mentor") {
+      createMentor(userInfo);
+    } else {
+      createMentee(userInfo);
+    }
   };
 
   render() {

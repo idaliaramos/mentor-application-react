@@ -18,6 +18,9 @@ export default function MentsPageLayout(prop) {
         {prop.children[2]}
         {prop.children[3]}
         {prop.children[4]}
+        {prop.children[5]}
+        {prop.children[6]}
+        {prop.children[7]}
       </div>
     </div>
   );
