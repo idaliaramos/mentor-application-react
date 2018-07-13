@@ -1,51 +1,37 @@
 import React, { Component } from "react";
 import { Button, Dropdown, Menu } from "semantic-ui-react";
-
+import { Link } from "react-router-dom";
 export default class NavComponent extends Component {
-  state = { activeItem: "home" };
+  state = { activeItem: "" };
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
-  handleMentorsClick = () => {
-    console.log("i clicked the mentors");
-  };
-  handleMenteesClick = () => {
-    console.log("i clicked the mentees");
-  };
-
   render() {
     if (localStorage.token) {
+      console.log(localStorage.token, "token");
       return this._renderLoggedIn();
     }
     return this._renderLoggedOut();
   }
-  _renderLoggedin() {
+  _renderLoggedIn() {
     const { activeItem } = this.state;
 
     return (
       <Menu inverted size="small">
         <Menu.Item
-          name="home"
-          active={activeItem === "home"}
+          name="Loggedin"
+          active={activeItem === "Home"}
           onClick={this.handleItemClick}
         />
-        <Menu.Item
-          name="mentees"
-          active={activeItem === "mentees"}
-          onClick={this.handleMenteesClick}
-        />
-        <Menu.Item
-          name="mentors"
-          active={activeItem === "mentors"}
-          onClick={this.handleMentorsClick}
-        />
-
+        <Menu.Item active={activeItem === "Mentees"}>
+          <Link to="/mentors">Mentors</Link>
+        </Menu.Item>
+        <Menu.Item>
+          <Link to="/mentees">Mentees</Link>
+        </Menu.Item>
         <Menu.Menu position="right">
           <Menu.Item>
-            <Button primary>Sign Up</Button>
-          </Menu.Item>
-          <Menu.Item>
-            <Button primary>Login</Button>
+            <Button primary>Log Out</Button>
           </Menu.Item>
         </Menu.Menu>
       </Menu>
@@ -58,21 +44,16 @@ export default class NavComponent extends Component {
     return (
       <Menu inverted size="small">
         <Menu.Item
-          name="home"
+          name="homeLoggedout"
           active={activeItem === "home"}
           onClick={this.handleItemClick}
         />
-        <Menu.Item
-          name="mentees"
-          active={activeItem === "mentees"}
-          onClick={this.handleMenteesClick}
-        />
-        <Menu.Item
-          name="mentors"
-          active={activeItem === "mentors"}
-          onClick={this.handleMentorsClick}
-        />
-
+        <Menu.Item active={activeItem === "Mentees"}>
+          <Link to="/mentors">Mentors</Link>
+        </Menu.Item>
+        <Menu.Item>
+          <Link to="/mentees">Mentees</Link>
+        </Menu.Item>
         <Menu.Menu position="right">
           <Menu.Item>
             <Button primary>Sign Up</Button>
