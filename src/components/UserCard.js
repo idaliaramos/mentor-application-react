@@ -4,17 +4,21 @@ const style = {
   margin: 10
 };
 const UserCard = props => {
-  console.log(props.name, "props in the mentor card");
+  console.log(props.id, "props ID");
   return (
-    <div>
+    <div key={props.id}>
       <Card style={style} key={props.id}>
-        <Card.Content>
+        <Card.Content key={props.id}>
           <Image floated="right" size="tiny" src={props.image} />
           <Card.Header>{props.name}</Card.Header>
           <Card.Meta>
             <Label.Group color="blue">
               {console.log(props.skills, "skills")}
-              {props.skills.map(skill => <Label as="a">{skill}</Label>)}
+              {props.skills.map((skill, i) => (
+                <Label as="a" key={i}>
+                  {skill}
+                </Label>
+              ))}
             </Label.Group>
           </Card.Meta>
           <Card.Description>{props.message}</Card.Description>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import env from "../../env";
 import UserCard from "../UserCard";
 import MentsPageLayout from "./MentsPageLayout";
-import NavComponent from "../Navigation/NavComponent";
+import NavComponent from "../NavComponent";
 
 export default class MentorPage extends Component {
   constructor() {
@@ -21,13 +21,14 @@ export default class MentorPage extends Component {
     })
       .then(response => response.json())
       .then(mentorCards => {
-        console.log(mentorCards.records, "mentorcards");
+        console.log(mentorCards.records, "mentorcards Id");
         let mentors = mentorCards.records.map(mentorCard => {
+          console.log(mentorCard.id, "id");
           return (
-            <div>
+            <div key={mentorCard.id}>
               <UserCard
                 name={mentorCard.fields.name}
-                id={mentorCard.id}
+                // id={mentorCard.id}
                 message={mentorCard.fields.message}
                 skills={mentorCard.fields.skills}
                 image={mentorCard.fields.imgurl}

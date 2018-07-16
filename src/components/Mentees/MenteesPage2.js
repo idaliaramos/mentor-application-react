@@ -26,7 +26,6 @@ export default class MenteePage extends Component {
         //   console.log('there are no menteeCards');
         //   // throw new Error();
         // }
-        console.log(menteeCards.records, "menteecards");
         let mentees = menteeCards.records.map(menteeCard => {
           return {
             id: menteeCard.id,

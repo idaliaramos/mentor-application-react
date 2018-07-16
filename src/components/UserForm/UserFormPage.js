@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import env from "../../env";
-import NavComponent from "../Navigation/NavComponent";
+import NavComponent from "../NavComponent";
 import UserFormComponent from "./UserFormComponent";
 import UserFormPageLayout from "./UserFormPageLayout";
 

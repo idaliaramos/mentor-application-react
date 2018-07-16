@@ -8,13 +8,13 @@ import MenteesPage from "./components/Mentees/MenteesPage";
 import UserFormPage from "./components/UserForm/UserFormPage";
 import env from "./env";
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      mentors: [],
-      mentees: []
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     mentors: [],
+  //     mentees: []
+  //   };
+  // }
 
   render() {
     return (
@@ -26,7 +26,7 @@ class App extends Component {
                 <Route exact path="/home" component={HomePage} /> */}
 
             <Route exact path="/mentors">
-              <MentorPage mentors={this.state.mentors} />
+              <MentorPage />
             </Route>
             <Route exact path="/mentees">
               <MenteesPage />
