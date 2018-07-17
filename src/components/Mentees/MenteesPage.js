@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import env from "../../env";
 import UserCard from "../UserCard";
 import MentsPageLayout from "../Mentors/MentsPageLayout";
 import NavComponent from "../NavComponent";
@@ -13,10 +12,11 @@ export default class MenteePage extends Component {
   }
 
   componentDidMount() {
+    console.log("process.env", process.env);
     fetch("https://api.airtable.com/v0/app0XX03H8f3ue8mF/mentees", {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer `
+        Authorization: `Bearer ${process.env.REACT_APP_KEY}`
       }
     })
       .then(response => response.json())

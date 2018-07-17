@@ -3,7 +3,7 @@ export default function(userInfo) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: "Bearer "
+      Authorization: `Bearer ${process.env.REACT_APP_KEY}`
     },
     body: JSON.stringify({
       fields: userInfo

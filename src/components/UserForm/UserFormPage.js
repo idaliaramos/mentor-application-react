@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import env from "../../env";
 import NavComponent from "../NavComponent";
 import UserFormComponent from "./UserFormComponent";
-import UserFormPageLayout from "./UserFormPageLayout";
 
 export default class UserFormPage extends Component {
   constructor() {
@@ -16,12 +14,10 @@ export default class UserFormPage extends Component {
     return (
       <div className="UserPage">
         <NavComponent />
-        {/* <UserFormPageLayout> */}
         <h1 className="center">Tell us about yourself</h1>
         <div className="form-component">
           <UserFormComponent onSubmitUserInfo={this.props.onSubmitUserInfo} />
         </div>
-        {/* </UserFormPageLayout> */}
       </div>
     );
   }

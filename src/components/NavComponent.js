@@ -8,7 +8,6 @@ export default class NavComponent extends Component {
 
   render() {
     if (localStorage.token) {
-      console.log(localStorage.token, "token");
       return this._renderLoggedIn();
     }
     return this._renderLoggedOut();

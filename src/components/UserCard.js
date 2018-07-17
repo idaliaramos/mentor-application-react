@@ -14,11 +14,7 @@ const UserCard = props => {
           <Card.Meta>
             <Label.Group color="blue">
               {console.log(props.skills, "skills")}
-              {props.skills.map((skill, i) => (
-                <Label as="a" key={i}>
-                  {skill}
-                </Label>
-              ))}
+              {props.skills.map(skill => <Label as="a">{skill}</Label>)}
             </Label.Group>
           </Card.Meta>
           <Card.Description>{props.message}</Card.Description>

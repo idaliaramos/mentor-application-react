@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import env from "../../env";
 import UserCard from "../UserCard";
 import MentsPageLayout from "./MentsPageLayout";
 import NavComponent from "../NavComponent";
@@ -13,10 +12,11 @@ export default class MentorPage extends Component {
   }
 
   componentDidMount() {
+    console.log("process.env", process.env.REACT_APP_KEY);
     fetch("https://api.airtable.com/v0/app0XX03H8f3ue8mF/mentors", {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer `
+        Authorization: `Bearer ${process.env.REACT_APP_KEY}`
       }
     })
       .then(response => response.json())
@@ -28,7 +28,6 @@ export default class MentorPage extends Component {
             <div key={mentorCard.id}>
               <UserCard
                 name={mentorCard.fields.name}
-                // id={mentorCard.id}
                 message={mentorCard.fields.message}
                 skills={mentorCard.fields.skills}
                 image={mentorCard.fields.imgurl}
