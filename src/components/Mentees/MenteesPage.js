@@ -13,7 +13,7 @@ export default class MenteePage extends Component {
 
   componentDidMount() {
     console.log("process.env", process.env);
-    fetch("https://api.airtable.com/v0/app0XX03H8f3ue8mF/mentees", {
+    fetch(`${process.env.REACT_APP_DATABASE_URL}/mentees`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.REACT_APP_KEY}`

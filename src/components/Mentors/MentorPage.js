@@ -13,7 +13,7 @@ export default class MentorPage extends Component {
 
   componentDidMount() {
     console.log("process.env", process.env.REACT_APP_KEY);
-    fetch("https://api.airtable.com/v0/app0XX03H8f3ue8mF/mentors", {
+    fetch(`${process.env.REACT_APP_DATABASE_URL}/mentors`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.REACT_APP_KEY}`
@@ -21,7 +21,6 @@ export default class MentorPage extends Component {
     })
       .then(response => response.json())
       .then(mentorCards => {
-        console.log(mentorCards.records, "mentorcards Id");
         let mentors = mentorCards.records.map(mentorCard => {
           console.log(mentorCard.id, "id");
           return (

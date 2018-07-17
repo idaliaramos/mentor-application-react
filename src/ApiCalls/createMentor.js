@@ -1,5 +1,5 @@
 export default function(userInfo) {
-  fetch("https://api.airtable.com/v0/app0XX03H8f3ue8mF/mentors", {
+  fetch(`${process.env.REACT_APP_DATABASE_URL}/mentors`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
