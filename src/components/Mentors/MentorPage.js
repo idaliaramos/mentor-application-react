@@ -12,7 +12,6 @@ export default class MentorPage extends Component {
   }
 
   componentDidMount() {
-    console.log("process.env", process.env.REACT_APP_KEY);
     fetch(`${process.env.REACT_APP_DATABASE_URL}/mentors`, {
       headers: {
         "Content-Type": "application/json",
@@ -22,7 +21,6 @@ export default class MentorPage extends Component {
       .then(response => response.json())
       .then(mentorCards => {
         let mentors = mentorCards.records.map(mentorCard => {
-          console.log(mentorCard.id, "id");
           return (
             <div key={mentorCard.id}>
               <UserCard

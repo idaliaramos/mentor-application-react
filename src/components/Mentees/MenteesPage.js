@@ -12,7 +12,6 @@ export default class MenteePage extends Component {
   }
 
   componentDidMount() {
-    console.log("process.env", process.env);
     fetch(`${process.env.REACT_APP_DATABASE_URL}/mentees`, {
       headers: {
         "Content-Type": "application/json",

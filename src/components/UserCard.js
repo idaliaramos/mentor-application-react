@@ -4,7 +4,6 @@ const style = {
   margin: 10
 };
 const UserCard = props => {
-  console.log(props.id, "props ID");
   return (
     <div key={props.id}>
       <Card style={style} key={props.id}>
@@ -13,7 +12,6 @@ const UserCard = props => {
           <Card.Header>{props.name}</Card.Header>
           <Card.Meta>
             <Label.Group color="blue">
-              {console.log(props.skills, "skills")}
               {props.skills.map(skill => <Label as="a">{skill}</Label>)}
             </Label.Group>
           </Card.Meta>

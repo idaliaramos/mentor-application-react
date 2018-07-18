@@ -37,7 +37,6 @@ class UserFormComponent extends Component {
   };
 
   handleChange = (e, { value }) => {
-    console.log(this.state, "state");
     this.setState({ value });
   };
   _handleClickOnSubmit = event => {
