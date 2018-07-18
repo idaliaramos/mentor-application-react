@@ -40,29 +40,7 @@ const UserCard = ({
     </Card>
   </div>
 );
-// alternate layout{
-/* <Card.Group>
-  <Card style={style} color="blue">
-    <Image src={props.image} size="s" />
-    <Card.Content>
-      <Card.Header>{props.name}</Card.Header>
-      <Card.Meta>
-        <span className="date">Mentor</span>
-      </Card.Meta>
-      <Card.Description>{props.message}</Card.Description>
-    </Card.Content>
-    <Card.Content extra>
-      <Label.Group color="blue">
-        {props.skills.map(skill => <Label as="a">{skill}</Label>)}
-      </Label.Group>
-      {/* <Label.Group color="blue">
-        <Label as="a">{props.skills}</Label>
-     </Label.Group>
-  </Card.Content>
-</Card>
-</Card.Group>
 
-{/* Layout 2 */
 UserCard.defaultProps = {
   image: 'hello',
 };
