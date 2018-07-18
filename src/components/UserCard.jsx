@@ -19,7 +19,6 @@ const UserCard = ({
         </Card.Header>
         <Card.Meta>
           <Label.Group color="blue">
-            {console.log(skills, 'skills')}
             {skills.map(skill => (
               <Label as="a">
                 {skill}
