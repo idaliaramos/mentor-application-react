@@ -43,7 +43,7 @@ export default class MenteePage extends Component {
     // deconstruct the mentees
     const { mentees } = this.state;
     return (
-      //import Nav and Add Mentees to the page layout
+      // import Nav and Add Mentees to the page layout
       <div className="MenteesPage">
         <NavComponent />
         <MentsPageLayout>

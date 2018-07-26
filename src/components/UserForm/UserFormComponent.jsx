@@ -72,7 +72,6 @@ class UserFormComponent extends Component {
               fluid
               label="First name"
               placeholder="First name"
-              // name={this.state.name}
               onChange={(event, newValue) => this.setState({ firstName: newValue.value })}
             />
             <Form.Input

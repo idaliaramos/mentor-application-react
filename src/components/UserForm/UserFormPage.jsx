@@ -8,22 +8,21 @@ export default class UserFormPage extends Component {
     super();
     this.state = {};
   }
-  testFunc = ev => {
-    console.log(this.state, 'state');
-  };
+
+  // render the Nav and UserFormComponent
   render() {
+    // pass down the function onSubmitUserInfo to give to UserFormComponent
     const { onSubmitUserInfo } = this.props;
     return (
       <div className="UserPage">
         <NavComponent />
-        <h1 className="center">Tell us about yourself</h1>
+        <h1 className="center">
+Tell us about yourself
+        </h1>
         <div className="form-component">
-          <UserFormComponent onSubmitUserInfo={onSubmitUserInfo} testFunc={this.testFunc} />
+          <UserFormComponent onSubmitUserInfo={onSubmitUserInfo} />
         </div>
       </div>
     );
   }
 }
-// UserFormPage.propTypes = {
-//   onSubmitUserInfo: PropTypes.func.isRequired,
-// };

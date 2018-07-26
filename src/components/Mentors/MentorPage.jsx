@@ -37,7 +37,8 @@ export default class MentorPage extends Component {
         this.setState({ mentors: mentors.splice(1) });
       });
   }
-//render the page with the mentors and nav component
+
+  // render the page with the mentors and nav component
   render() {
     return (
       <div className="MentorsPage">
