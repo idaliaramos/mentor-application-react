@@ -1,4 +1,4 @@
-//api request to create new mentee
+// api request to create new mentee
 export default function (userInfo) {
   fetch(`${process.env.REACT_APP_DATABASE_URL}/mentees`, {
     method: 'POST',

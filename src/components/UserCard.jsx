@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 const style = {
   margin: 10,
 };
+// deconstructed the props that are being passed
 const UserCard = ({
   id, image, name, skills, contact, message,
 }) => (

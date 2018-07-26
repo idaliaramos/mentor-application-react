@@ -1,28 +1,25 @@
-import React, { Component } from "react";
-import { Button, Dropdown, Menu } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Button, Dropdown, Menu } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 export default class NavComponent extends Component {
-  state = { activeItem: "" };
+  state = { activeItem: '' };
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
-
+  //conditional rendering if logged in or out
   render() {
     if (localStorage.token) {
       return this._renderLoggedIn();
     }
     return this._renderLoggedOut();
   }
+  //if user is logged in it will run this display
   _renderLoggedIn() {
     const { activeItem } = this.state;
 
     return (
       <Menu inverted size="small">
-        <Menu.Item
-          name="Loggedin"
-          active={activeItem === "Home"}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item active={activeItem === "Mentees"}>
+        <Menu.Item name="Loggedin" active={activeItem === 'Home'} onClick={this.handleItemClick} />
+        <Menu.Item active={activeItem === 'Mentees'}>
           <Link to="/mentors">Mentors</Link>
         </Menu.Item>
         <Menu.Item>
@@ -36,7 +33,7 @@ export default class NavComponent extends Component {
       </Menu>
     );
   }
-
+  //if user is logged out it will run this display
   _renderLoggedOut() {
     const { activeItem } = this.state;
 
@@ -44,10 +41,10 @@ export default class NavComponent extends Component {
       <Menu inverted size="small">
         <Menu.Item
           name="homeLoggedout"
-          active={activeItem === "home"}
+          active={activeItem === 'home'}
           onClick={this.handleItemClick}
         />
-        <Menu.Item active={activeItem === "Mentees"}>
+        <Menu.Item active={activeItem === 'Mentees'}>
           <Link to="/mentors">Mentors</Link>
         </Menu.Item>
         <Menu.Item>
