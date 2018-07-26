@@ -40,7 +40,7 @@ const UserCard = ({
     </Card>
   </div>
 );
-
+// added propTypes to have best practices
 UserCard.defaultProps = {
   image: 'hello',
 };
