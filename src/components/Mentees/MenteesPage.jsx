@@ -11,6 +11,7 @@ export default class MenteePage extends Component {
     };
   }
 
+  // first get the mentees from the database to update the state
   componentDidMount() {
     fetch(`${process.env.REACT_APP_DATABASE_URL}/mentees`, {
       headers: {
@@ -19,6 +20,7 @@ export default class MenteePage extends Component {
       },
     })
       .then(response => response.json())
+      // once the mentees are gotten, create a user card for each of the mentees
       .then((menteeCards) => {
         const mentees = menteeCards.records.map(menteeCard => (
           <div key={menteeCard.id}>
@@ -32,13 +34,16 @@ export default class MenteePage extends Component {
             />
           </div>
         ));
+        // set the state, splice the first mentee because it was blank
         this.setState({ mentees: mentees.splice(1) });
       });
   }
 
   render() {
+    // deconstruct the mentees
     const { mentees } = this.state;
     return (
+      //import Nav and Add Mentees to the page layout
       <div className="MenteesPage">
         <NavComponent />
         <MentsPageLayout>
