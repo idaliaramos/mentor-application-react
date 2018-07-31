@@ -39,11 +39,7 @@ export default class NavComponent extends Component {
 
     return (
       <Menu inverted size="small">
-        <Menu.Item
-          name="homeLoggedout"
-          active={activeItem === 'home'}
-          onClick={this.handleItemClick}
-        />
+        <Menu.Item name="Home" active={activeItem === 'home'} onClick={this.handleItemClick} />
         <Menu.Item active={activeItem === 'Mentees'}>
           <Link to="/mentors">Mentors</Link>
         </Menu.Item>
