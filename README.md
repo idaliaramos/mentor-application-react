@@ -4,7 +4,7 @@ MentorConnect allows mentors and mentees to find each other based on specific in
 
 ## This project is in early stages, very exciting!
 
-![image with mentees](https://ibb.co/g4VQrK)
+![mentees image](src/Mentees.png)
 
 ## Front end made with
 
